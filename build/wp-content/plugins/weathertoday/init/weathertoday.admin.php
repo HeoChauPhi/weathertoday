@@ -69,7 +69,7 @@ class WeatherTodaySettingsPage {
 
     add_settings_field(
       'weather_api_key',
-      __('Weather API Key'),
+      __('Weather API Key <br><i style="font-size: 10px; color: #72777c; font-weight: 400;">Get API Key in: <a href="https://darksky.net/dev" target="_blank">https://darksky.net/dev/</a></i>'),
       array( $this, 'form_textfield' ), // Callback
       'weather-setting-admin', // Page
       'weather_section_id',

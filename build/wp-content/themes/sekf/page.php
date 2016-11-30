@@ -38,11 +38,3 @@ $context['sidebar_menu'] = $sidebar_menu;
 
 
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig'), $context );
-
-$localtion_json = file_get_contents("http://ipinfo.io/");
-$parsed_localtion = json_decode($localtion_json);
-$localtion = str_replace(" ", "-", $parsed_localtion->region);
-
-$json_string = file_get_contents("http://api.openweathermap.org/data/2.5/forecast/city?q=".$localtion."&APPID=87ad1525fd11092f6073bc28b6397d7c");
-$parsed_json = json_decode($json_string);
-print_r($parsed_json);

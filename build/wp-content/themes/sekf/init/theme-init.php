@@ -305,5 +305,11 @@ function sekf_twig_data($data){
   $data['menu']['main'] = new TimberMenu('main');
   $data['menu']['footer'] = new TimberMenu('footer');
 
+  if(function_exists('GetWeatherLocate')){
+    $data['weathertoday'] = GetWeatherLocate();
+  } else {
+    $data['weathertoday'] = __('Please active Weather Plugin!');
+  }
+
   return $data;
 }

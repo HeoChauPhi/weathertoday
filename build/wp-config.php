@@ -21,7 +21,7 @@
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 switch ($_SERVER['HTTP_HOST']) {
-  case 'http://weathertoday.tk/':
+  case 'weathertoday.tk/':
     $config_file = 'wp-config/wp-config.weathertoday.php';
     //define('WP_CACHE', true); //Added by WP-Cache Manager
     break;

@@ -1,0 +1,4 @@
+{#{weather_arr|print_r}#}
+{% for item in weathertoday.weather.daily.data %}
+  <p>{{item.time|date("F jS \\a\\t g:ia")}}</p>
+{% endfor %}

@@ -10,7 +10,7 @@
  */
 
 include_once('init/weathertoday.admin.php');
-//require_once('init/functions.php');
+require_once('init/functions.php');
 
 // Admin settings.
 if(is_admin()) {

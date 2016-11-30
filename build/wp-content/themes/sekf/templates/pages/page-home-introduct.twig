@@ -1,0 +1,23 @@
+{% extends 'layout.twig' %}
+
+{% block header %}
+  {% include 'header.twig' %}
+{% endblock %}
+
+{% block content %}
+  {% set weather_local = weathertoday.localtion.region %}
+  {% set weather_arr = weathertoday.weather %}
+  
+  <div class="box-time">
+    <div class="item-hours">{{ "now"|date_modify("+" ~ weather_arr.offset ~ " hours")|date("G") }}</div>
+    <div class="item-minutes">{{ "now"|date_modify("+" ~ weather_arr.offset ~ " hours")|date("i") }}</div>
+    <div class="item-seconds">{{ "now"|date_modify("+" ~ weather_arr.offset ~ " hours")|date("s") }}</div>
+  </div>
+  <div class="box-date">
+    <div class="item-date">{{ "now"|date_modify("+" ~ weather_arr.offset ~ " hours")|date("d") }}</div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ wp_footer }}
+{% endblock %}
