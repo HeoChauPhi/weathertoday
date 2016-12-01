@@ -1,0 +1,41 @@
+{% set weather_local = weathertoday.localtion %}
+{% set weather_arr = weathertoday.weather %}
+{% set date_now = "now"|date_modify("+" ~ weather_arr.offset ~ " hours") %}
+{% set degree_f = weather_arr.currently.temperature %}
+{% set degree_c = (weather_arr.currently.temperature - 32) * 5 / 9 %}
+
+<div class="box-weather--feature">
+  <div class="box-weather--local">
+    <div class="box-weather--region">{{weather_local.region}}</div>
+    <div class="box-weather--today">{{date_now|date("l")}}</div>
+    <div class="box-weather--summary">{{weather_arr.currently.summary}}</div>
+    <div class="box-weather--value">
+      <div class="box-weather--icon">
+        <div class="icon-{{weather_arr.currently.icon}}">{% include "weather-icon.twig" with {'icon': weather_arr.currently.icon} %}</div>
+      </div>
+      <div class="box-weather--info">
+        <div class="box-weather--degree js-degree-switch">
+          <div class="box-weather--degree-unit">
+            <a href="#box-weather--degree-c" class="degree-c">&#8451;</a>
+            <a href="#box-weather--degree-f" class="degree-f">&#8457;</a>
+          </div>
+          <div class="box-weather--degree-value">
+            <div class="box-weather--degree-c">{{degree_c|round}}</div>
+            <div class="box-weather--degree-f">{{degree_f|round}}</div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+
+  <div class="box-weather--expand">
+    <div class="box-weather--precipprobability"><label>Precip Probability: </label>{{weather_arr.currently.precipProbability}}</div>
+    <div class="box-weather--humidity"><label>Humidity: </label>{{weather_arr.currently.humidity}}</div>
+    <div class="box-weather--windSpeed"><label>Wind Speed: </label>{{weather_arr.currently.windSpeed}}</div>
+    <ul class="box-weather--expand-tabs">
+      <li class="tab-degree">degree</li>
+      <li class="tab-precipprobability">precip probability</li>
+      <li class="tab-windspeed">windy</li>
+    </ul>
+  </div>
+</div>

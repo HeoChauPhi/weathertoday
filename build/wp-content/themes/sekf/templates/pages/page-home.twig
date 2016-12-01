@@ -1,5 +1,9 @@
 {% extends 'layout.twig' %}
 
+{% block feature %}
+  {% include 'weather-feature.twig' %}
+{% endblock %}
+
 {% block content %}
   {% if title_option != "on" %}
     {% if post.title %}
@@ -17,11 +21,6 @@
     {{ flexible_content('group_component') }}
     {{ flexible_content('view_component') }}
   {% endfor %}
-
-  {% if function('comments_open') %}
-  {% include 'comments.twig' %}
-  {{ function('comment_form') }}
-  {% endif %}
 
 {% endblock %}
 

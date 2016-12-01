@@ -287,6 +287,7 @@ function sekf_twig_data($data){
   $data['site_logo'] = new TimberImage($logo);
   $data['custom_logo'] = new TimberImage($custom_logo);
   $data['site_favicon'] = new TimberImage($favicon);
+  $data['img_uri'] = get_template_directory_uri().'/dist/images';
 
   $data['flexible_content'] = TimberHelper::function_wrapper( 'flexible_content' );
   $data['preg_match_url'] = TimberHelper::function_wrapper( 'preg_match_url' );

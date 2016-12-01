@@ -1,11 +1,16 @@
 {% block header %}
   <header id="header" class="header clearfix bg--gradient-red">
-    <div class="container-wide">
+    <div class="container">
+      <div class="header-search">
+        {% include 'searchform.twig' %}
+      </div>
+
       <div class="header__logo">
         {% if function('has_custom_logo') %}
           {{function('the_custom_logo')}}
         {% else %}
           <a href="{{ site.url }}">
+            <span class="icon-{{weathertoday.weather.currently.icon}}"></span>
             <img alt="{{ site.name }}" class="site-logo" src="{{ site_logo }}" alt="{{ site.name }}">
           </a>
         {% endif %}
