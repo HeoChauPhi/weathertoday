@@ -22,12 +22,12 @@ function GetWeatherLocate(){
   $options = get_option('weather_board_settings');
 
   if ($_SERVER['REMOTE_ADDR'] != "127.0.0.1"){
-    $ip = $_SERVER['REMOTE_ADDR'];
+    $ip = $_SERVER['REMOTE_ADDR'] . "/json";
   } else {
     $ip = '';
   }
 
-  $localtion_json = file_get_contents("http://ipinfo.io/".$ip."/json");
+  $localtion_json = file_get_contents("http://ipinfo.io/".$ip);
   $parsed_localtion = json_decode($localtion_json);
   $localtion = str_replace(" ", "-", $parsed_localtion->loc);
   $weather['localtion'] = $parsed_localtion;

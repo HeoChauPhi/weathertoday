@@ -6,6 +6,7 @@ use Timber\Menu;
 
 // load the theme's framework
 require_once dirname( __FILE__ ) . '/theme-support.php';
+require_once dirname( __FILE__ ) . '/translate-register.php';
 
 // Get custom function template with Timber
 Timber::$dirname = array('templates', 'templates/blocks', 'templates/shortcode', 'templates/pages', 'templates/layouts', 'templates/views');
@@ -188,14 +189,14 @@ function flexible_content($name) {
           try {
             Timber::render($layout_sub . '.twig', $field_sub);
           } catch (Exception $e) {
-            echo 'Could not find a twig file for layout type: ' . $layout_sub;
+            echo __('Could not find a twig file for layout type: ', 'theme') . $layout_sub;
           }
         }
       } else {
         try {
           Timber::render($layout . '.twig', $field);
         } catch (Exception $e) {
-          echo 'Could not find a twig file for layout type: ' . $layout;
+          echo __('Could not find a twig file for layout type: ', 'theme') . $layout;
         }
       }
     }
@@ -305,12 +306,6 @@ function sekf_twig_data($data){
 
   $data['menu']['main'] = new TimberMenu('main');
   $data['menu']['footer'] = new TimberMenu('footer');
-
-  if(function_exists('GetWeatherLocate')){
-    $data['weathertoday'] = GetWeatherLocate();
-  } else {
-    $data['weathertoday'] = __('Please active Weather Plugin!');
-  }
 
   return $data;
 }

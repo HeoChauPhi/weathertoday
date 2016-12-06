@@ -26,3 +26,15 @@ function social_post_plugin_scripts() {
   wp_register_script('social-post-script', plugin_dir_url( __FILE__ ) . 'dist/js/scripts.js', array('jquery'), FALSE, '1.0.0', TRUE); // Custom scripts
   wp_enqueue_script('social-post-script'); // Enqueue it!
 }*/
+
+// Add Timber value
+add_filter('timber_context', 'weather_twig_data');
+function weather_twig_data($data){
+  if(function_exists('GetWeatherLocate')){
+    $data['weathertoday'] = GetWeatherLocate();
+  } else {
+    $data['weathertoday'] = __('Please active Weather Plugin!', 'weathertoday');
+  }
+
+  return $data;
+}

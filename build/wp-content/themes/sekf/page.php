@@ -36,5 +36,4 @@ $menu_obj = wp_get_nav_menu_object($sidebar_menu);
 $context['sidebar_menu'] = $sidebar_menu;
 //$context['menu_select'] = new TimberMenu($menu_obj->term_id);
 
-
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig'), $context );

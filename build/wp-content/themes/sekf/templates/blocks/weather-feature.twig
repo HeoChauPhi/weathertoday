@@ -6,7 +6,7 @@
 
 <div class="box-weather--feature">
   <div class="box-weather--local">
-    <div class="box-weather--region">{{weather_local.region}}</div>
+    <div class="box-weather--region">{{weather_region}}</div>
     <div class="box-weather--today">{{date_now|date("l")}}</div>
     <div class="box-weather--summary">{{weather_arr.currently.summary}}</div>
     <div class="box-weather--value">
@@ -34,7 +34,7 @@
     <div class="box-weather--windSpeed"><label>Wind Speed: </label>{{weather_arr.currently.windSpeed}}</div>
     <ul class="box-weather--expand-tabs">
       <li class="tab-degree">degree</li>
-      <li class="tab-precipprobability">precip probability</li>
+      <li class="tab-precipprobability">{{ precip_probability }}</li>
       <li class="tab-windspeed">windy</li>
     </ul>
   </div>

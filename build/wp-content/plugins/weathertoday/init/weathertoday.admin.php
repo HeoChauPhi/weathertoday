@@ -23,8 +23,8 @@ class WeatherTodaySettingsPage {
   public function add_plugin_page() {
     // This page will be under "Settings"
     add_options_page(
-      __('Weather Settings'),
-      __('Weather'),
+      __('Weather Settings', 'weathertoday'),
+      __('Weather', 'weathertoday'),
       'manage_options',
       'weather-setting-admin',
       array($this, 'create_admin_page')
@@ -69,7 +69,7 @@ class WeatherTodaySettingsPage {
 
     add_settings_field(
       'weather_api_key',
-      __('Weather API Key <br><i style="font-size: 10px; color: #72777c; font-weight: 400;">Get API Key in: <a href="https://darksky.net/dev" target="_blank">https://darksky.net/dev/</a></i>'),
+      __('Weather API Key <br><i style="font-size: 10px; color: #72777c; font-weight: 400;">Get API Key in: <a href="https://darksky.net/dev" target="_blank">https://darksky.net/dev/</a></i>', 'weathertoday'),
       array( $this, 'form_textfield' ), // Callback
       'weather-setting-admin', // Page
       'weather_section_id',
@@ -81,7 +81,7 @@ class WeatherTodaySettingsPage {
   * Print the Section text
   */
   public function print_section_info() {
-    //echo "Configure to your Social account.";
+    echo __("Use {{weathertoday|print_r}} in Twig file or call function GetWeatherLocate();", 'weathertoday');
   }
 
   /**
